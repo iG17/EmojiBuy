@@ -1,0 +1,119 @@
+{
+  "name": "buyemoji",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "HsVka",
+  "actions": [
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "2",
+      "iftrue": "2",
+      "iftrueVal": "5",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Please use it like this:\n/buyemoji (link) (name)\nEach purchase costs `500□`",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "gold",
+      "comparison": "4",
+      "value": "499",
+      "iftrue": "2",
+      "iftrueVal": "9",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Member Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member} you dont have the required `500□`",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "gold",
+      "changeType": "1",
+      "value": "-500",
+      "name": "Control Member Data"
+    },
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "link",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "0",
+      "infoIndex": "2",
+      "storage": "1",
+      "varName": "name",
+      "name": "Store Command Params"
+    },
+    {
+      "url": "${tempVars(\"link\")}",
+      "storage": "1",
+      "varName": "img",
+      "name": "Create Image"
+    },
+    {
+      "emojiName": "${tempVars(\"name\")}",
+      "storage": "1",
+      "varName": "img",
+      "storage2": "0",
+      "varName2": "",
+      "name": "Create Emoji"
+    },
+    {
+      "info": "0",
+      "find": "527475216981426176",
+      "storage": "1",
+      "varName": "channel",
+      "name": "Find Channel"
+    },
+    {
+      "channel": "5",
+      "varName": "channel",
+      "message": "${member} just created an emoji called `${tempVars(\"name\")}`\n${tempVars(\"link\")}",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    }
+  ],
+  "comType": "0"
+}
